@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+div#gallery img.images {
+
+	height: 15%;
+	width: 19%;	
+	margin-right: 5%;
+	margin-top: 5%;		
+}
+
+h2 {
+	font-size: 12pt
+}
+
+.images:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+div#gallery img.images:focus {
+	opacity: 0.5;
+    filter: alpha(opacity=50);
+}

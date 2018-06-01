@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+
+#header {	
+	margin-right: 34%;
+	background: #fff;
+	border: 4px double black;
+	text-align: left;
+	font-weight: bold;	
+	min-width: 100px;
+	overflow: hidden;
+	
+}
+
+[contentEditable=true]:empty:after{    
+    content:attr(data-text)
+}
+
+#form {
+	position: absolute;
+}
+
+#content {	
+	margin-right: 34%;
+	background: #fff;
+	border: 4px double black;
+	text-align: left;
+	min-width: 10px;
+	word-break: break-all;	
+ 	
+}
+
+div#content img.images {
+	border-width: 0px;
+	max-width: 100%;
+	max-height: 100%;	
+	position: relative;	
+}

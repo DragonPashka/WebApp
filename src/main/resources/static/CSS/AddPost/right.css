@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+iframe {
+	height: 90%;
+	width: 33%;	
+	margin-left: 67%;
+	background: #fff;
+	border: 4px double black;
+	word-break: break-all;	
+	position: fixed;		
+	
+}
