@@ -70,16 +70,16 @@ public class FileController
 		}
         
     	model.addAttribute("images", imageService.getImages());
-    	return "redirect:/Gallery";
+    	return "redirect:/AddPost";
     }
     
     @RequestMapping(value="/delete", method = RequestMethod.POST)
-    public String deleteFile(@RequestParam("name") String name, Model model) throws IOException
+    public String deleteFile(@RequestParam("name") String name, Model model)
     {    	   	
     	imageService.deleteImage(pathToImages+name);    	
     	model.addAttribute("images", imageService.getImages());
     	
-    	return "Gallery";	
+    	return "AddPost";	
     }
 }
 

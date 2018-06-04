@@ -1,30 +1,18 @@
-var images=document.getElementById('gallery').getElementsByClassName('images')
 
-for (var i=0; i< images.length; i++)
+$(document).on('keydown', '#gallery img.images', function(event)
 {
-    (function(index)
-     {
-        images[index].addEventListener("keydown", function(event)
-        {
-            alert(event.keyCode);
-            //getContentForUpdate();
-            var fullPath = images[index].src;            
-            var filename = fullPath.replace(/^.*[\\\/]/, '');
-            document.getElementById("nameOfFile").value = filename;
-            if (event.keyCode === 46)
-            {                
-                document.getElementById('deleteForm').submit();
-                var iframe = document.getElementById('GalleryFrame');
-
-                iframe.src = iframe.src;
-            }
-        })
-    })(i);
-}
+   
+    var fullPath = this.src;            
+    var filename = fullPath.replace(/^.*[\\\/]/, '');
+    if (event.keyCode === 46)
+    {  
+        $("#pictures").load( "/delete #gallery", { "name": filename} );               
+    }
+            
+       
+})
 
 
-
-	    	
 	    	
             
 	    

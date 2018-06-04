@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-iframe {
+#gallery {
 	height: 90%;
 	width: 33%;	
 	margin-left: 67%;
@@ -10,3 +10,21 @@ iframe {
 	position: fixed;		
 	
 }
+
+div#gallery img.images {
+
+	height: 15%;
+	width: 19%;	
+	margin-right: 5%;
+	margin-top: 5%;		
+}
+
+h2 {
+	font-size: 12pt
+}
+
+.images:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+

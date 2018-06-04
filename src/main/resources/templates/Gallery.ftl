@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Website</title>
-<link rel="stylesheet" href="/CSS/Gallery/images.css">
 </head>
 <body>
 	<div id="gallery" data-text="Здесь должны быть картинки">
