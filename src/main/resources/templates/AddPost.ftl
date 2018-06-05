@@ -8,9 +8,6 @@
 <link rel="stylesheet" href="/CSS/menu.css">
 <link rel="stylesheet" href="/CSS/AddPost/left.css">
 <link rel="stylesheet" href="/CSS/AddPost/right.css">
-<link rel="stylesheet" href="/CSS/Gallery/images.css">
-
-
 
 </head>
 <body>
@@ -42,7 +39,7 @@
 		</div>
 	</article>
 	<article id="pictures">		
-		<div id="gallery" data-text="Здесь должны быть картинки">
+		<div id="gallery" data-text="Здесь должны быть картинки" >
 				<h2>Картинки для перетаскивания в статью</h2>
 				<#list images as image>
 					<img border="3" class="images" src=${image} alt="Картинка не прогрузилась" tabindex="0">				
@@ -51,12 +48,9 @@
 				   <p>Загрузите ваши фотографии на сервер</p>			   	
 				   <p><input type="file" name="file" multiple accept="image/*,image/jpeg"></p>				   
 				   <p><input type="submit" value="Отправить"></p>
-	  			</form>
-	  			<form id="deleteForm" action="/delete" enctype="multipart/form-data" method="post" >
-	  			   <input type="text" name="name" id="nameOfFile" style="display:none"/> 
-	  			    <p><input type="submit" value="Удалить файл"></p>			   
-	  			</form>					
-		</div>					
+	  			</form>  
+	  			<p><button id="deleteImage">Удалить</button></p>		   
+	  			
 		
 	</article>	
 	

@@ -28,3 +28,12 @@ h2 {
     filter: alpha(opacity=50);
 }
 
+#gallery .images:focus {
+	
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#deleteImage{
+	display:none;
+}
