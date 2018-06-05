@@ -30,7 +30,7 @@
 		<h1 id="header" contentEditable="true" data-text="Введите заголовок статьи"></h1>
 		<div id="form">
 			<div id="content" contentEditable="true" onresizestart="true" data-text="Введите текст статьи"></div>
-			<form action="/Get" method="POST" onsubmit="getContent()">
+			<form action="/Get" method="POST">
 				<input type="text" name="head" id="head" style="display:none"/>
 				<input type="text" name="text" id="text" style="display:none"/>
 		    	<input type="submit" value="Сохранить"/>
@@ -44,10 +44,10 @@
 				<#list images as image>
 					<img border="3" class="images" src=${image} alt="Картинка не прогрузилась" tabindex="0">				
 				</#list>
-				<form id="uploadForm" action="/upload" enctype="multipart/form-data" method="post">
+				<form id="uploadForm" enctype="multipart/form-data" method="post">
 				   <p>Загрузите ваши фотографии на сервер</p>			   	
-				   <p><input type="file" name="file" multiple accept="image/*,image/jpeg"></p>				   
-				   <p><input type="submit" value="Отправить"></p>
+				   <p><input type="file" name="files" multiple accept="image/*,image/jpeg"></p>				   
+				   <p><input type="submit" value="Загрузить"></p>
 	  			</form>  
 	  			<p><button id="deleteImage">Удалить</button></p>		   
 	  			
@@ -55,6 +55,7 @@
 	</article>	
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script></body>
+	<script src="/JS/addImage.js"></script>
 
 	<script src="/JS/deleteImage.js"></script>
 </html>

@@ -1,14 +1,16 @@
 package service;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,6 +49,21 @@ public class ImageService
 			log.error("Error while deleting the file: "+e);
 		} 
 		
-	}	
+	}
+	
+	 public void addImage(MultipartFile file) throws IOException 
+	    {	    	
+	        if (!file.isEmpty())
+	        {        	
+	            byte[] bytes;
+				BufferedOutputStream stream= new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/CSS/images/"+file.getOriginalFilename())));								
+				bytes = file.getBytes();				
+	            stream.write(bytes);
+	            stream.close();
+				     
+	        } else
+	        	throw new IOException("The file is empty");	        
+	    	
+	    }
 
 }

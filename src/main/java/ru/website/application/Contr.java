@@ -40,13 +40,11 @@ public class Contr
 		
 	}
 	
-	@RequestMapping(value = { "/Add", "/AddPost" }, method = RequestMethod.GET)
-	public String addPost( Model model)
+	@RequestMapping(value = { "/Add" }, method = RequestMethod.GET)
+	public String add( Model model)
 	{		
 		images=imageService.getImages();
-		model.addAttribute("images", images);		
-		
-		
+		model.addAttribute("images", images);	
 		return "AddPost";		
 	}
 	
@@ -59,14 +57,13 @@ public class Contr
 
 	}
 	
-	@RequestMapping(value = { "/Gallery" }, method = RequestMethod.GET)
-	public String allGalery( Model model)
+	@RequestMapping(value = { "/AddPost" }, method = RequestMethod.POST)
+	public String addPost( Model model)
 	{		
 		images=imageService.getImages();
-		
-		model.addAttribute("images", images);		
-		
-		return "Gallery";		
+		model.addAttribute("images", images);	
+		return "AddPost";		
 	}
+	
 
 }

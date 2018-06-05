@@ -44,11 +44,12 @@ $(document).on('click', '#deleteImage', function(event)
 //Added function for delete image
 function deleteImage()
 {
+    if (!confirm("Вы действительно хотите удалить файл "+ filename +"?"))
+        return false;
     $("#pictures").load( "/delete #gallery", { "name": filename} );       
     document.getElementById("deleteImage").style.display = "none"; 
     return false;
 }
-
 
 	    	
             

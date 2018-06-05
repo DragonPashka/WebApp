@@ -33,7 +33,6 @@ import service.ImageService;
 
 @Controller
 @Slf4j
-@Setter
 public class FileController
 {  
 	@Autowired
@@ -42,44 +41,32 @@ public class FileController
 	private List<String> images;
 	
 	private String pathToImages="src/main/resources/static/CSS/images/";
-   
-   
+      
     @RequestMapping(value="/upload", method = RequestMethod.POST)
-    public String uploadFile(@RequestParam("file") MultipartFile file, Model model, HttpServletResponse response, HttpServletRequest request) throws IOException
-    {		
-    	
-        if (!file.isEmpty())
-        {        	
-            byte[] bytes;
-			try(BufferedOutputStream stream= new BufferedOutputStream(new FileOutputStream(new File(pathToImages+file.getOriginalFilename())));)
-			{				
-				bytes = file.getBytes();				
-	            stream.write(bytes);	 
-	            log.info("The "+ file.getOriginalFilename()+" was upload successfully");	            
-			} 
-			catch (IOException e)
-			{			
-				log.error("Error while loading the file: "+e.getMessage());				
-			}           
-        } 
+    public String uploadFiles(@RequestParam("files") MultipartFile[] files) 
+    {	
+    	try
+    	{
+    		for(MultipartFile uploadingFile : files) 
+    		{
+    			imageService.addImage(uploadingFile);
+    			log.info("The "+ uploadingFile.getOriginalFilename()+" was upload successfully");
+    		}
+		}    	
+    	catch (IOException e)
+    	{
+    		log.error("Error while loading the file: "+e.getMessage());	
+		}      
         
-        images=imageService.getImages();
-        for (int i=0; i<images.size(); i++)
-		{
-			log.info(images.get(i));
-		}
-        
-    	model.addAttribute("images", imageService.getImages());
-    	return "redirect:/AddPost";
+    	return "redirect:/Add";
     }
     
+    
     @RequestMapping(value="/delete", method = RequestMethod.POST)
-    public String deleteFile(@RequestParam("name") String name, Model model)
+    public String deleteFile(@RequestParam("name") String name)
     {    	   	
     	imageService.deleteImage(pathToImages+name);    	
-    	model.addAttribute("images", imageService.getImages());
-    	
-    	return "AddPost";	
+    	return "redirect:/Add";
     }
 }
 
